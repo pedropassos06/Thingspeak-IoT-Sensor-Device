@@ -22,7 +22,7 @@ voltage = analog_voltage(photocell)
 uart = busio.UART(board.TX, board.RX, baudrate=115200, bits=8, parity=None, stop=1)
 
 #API requests that will write data to channel. field 1 will be added to this request later on.
-update = "GET https://api.thingspeak.com/update?api_key=ETX7Q0YKM9I8BAKB"
+update = "GET https://api.thingspeak.com/update?api_key=PUT_YOUR_THINGSPEAK_KEY_HERE"
 
 #defining fields. variables will be added to API write feed request at the end. more fields can be added if needed
 field1 = '&field1='
@@ -35,8 +35,8 @@ print("Set to station mode (client)")
 time.sleep(2)
 
 #ESP8622 connects to router
-uart.write(bytes('AT+CWJAP="MEGA","7819520524"\r\n', 'utf-8'))   #wifi name and password
-print("Connected to WIFI: MEGA")
+uart.write(bytes('AT+CWJAP="PUT_YOUR_WIFI_NAME_HERE","PASSWORD_HERE"\r\n', 'utf-8'))   #wifi name and password
+print("Connected to WIFI: WIFI_NAME")
 time.sleep(2)
 print("Synchronizing...")
 data = uart.readline()
